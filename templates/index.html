@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do Tempo</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+    <h1>Previsão do Tempo</h1>
+    <form action="/result" method="post">
+        <label for="cidade">Selecione a cidade:</label><br>
+        <select id="cidade" name="cidade">
+            {% for cidade in cidades %}
+            <option value="{{ cidade }}">{{ cidade }}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="submit" value="Buscar">
+    </form>
+    {% if mensagem %}
+    <p>{{ mensagem }}</p>
+    {% endif %}
+</body>
+</html>
